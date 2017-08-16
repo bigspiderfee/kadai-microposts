@@ -14,7 +14,7 @@
         </div>
         <div>
           <p>
-          <% if current_user == micropost.user %>
+          <% if current_user == micropost.user && !current_page?(favoritings_user_path(current_user))  %>
             <%= link_to 'Delete', micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %>
           <% end %>
           <% if current_user.favoriting?(micropost) %>

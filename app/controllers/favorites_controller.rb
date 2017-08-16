@@ -6,17 +6,13 @@ class FavoritesController < ApplicationController
     # binding.pry
     current_user.favorite(micropost)
     flash[:success] = 'お気に入りに登録しました。'
-    # redirect_to favoritings_user
-    # 暫定対応
-    redirect_to root_url
+    redirect_to favoritings_user_path(current_user)
   end
 
   def destroy
     micropost = Micropost.find(params[:micropost_id])
     current_user.unfavorite(micropost)
     flash[:success] = 'お気に入りから削除しました。'
-    # redirect_to favoritings_user
-    # 暫定対応
-    redirect_to root_url
+    redirect_to favoritings_user_path(current_user)
   end
 end
